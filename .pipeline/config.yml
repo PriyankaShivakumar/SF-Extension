@@ -1,0 +1,27 @@
+### General project setup
+general:
+  projectName: 'BpValidationSF'
+  pipeline: 'sap-cloud-sdk'    # this line is mandatory
+  buildTool: 'mta'
+
+### Step-specific configuration
+steps:
+  cloudFoundryDeploy:
+    cloudFoundry:
+      credentialsId: 'cf-credentials'
+      apiEndpoint: 'https://api.cf.eu10.hana.ondemand.com'    # for example, https://api.cf.eu10.hana.ondemand.com
+      org: 'SFExtensionCW16'
+      space: 'dev'
+    mtaDeployParameters: '-f --version-rule ALL'
+  
+  npmExecuteLint:
+    failOnError: true
+
+
+### Stage-specific configuration
+stages:
+  Build:
+    npmExecuteLint: true
+   
+  Release:
+    cloudFoundryDeploy: true
