@@ -5,7 +5,7 @@ extend service external with {
   //Mashup Entity from SuccessFactors User
     @mashup entity Users as projection on external.User {
      key userId as employeeid ,
-     key defaultFullName as employeename,
+     defaultFullName as employeename,
       email,
       firstName,
       title,

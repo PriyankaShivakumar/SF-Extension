@@ -74,7 +74,7 @@ annotate AdminService.Notifications with @(UI : {
       $Type : 'UI.DataField',
     },
     Description    : {
-      Value : userinfo_employeename,
+      Value : 'sdsdsd',
       Label : '{i18n>empname}',
       $Type : 'UI.DataField',
     }

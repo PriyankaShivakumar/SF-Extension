@@ -145,6 +145,7 @@
 									"tableSettings": {
 										"type": "ResponsiveTable",
 										"enableExport": false,
+										"enablePaste": false,
 										"creationMode": {
 											"name": "Inline",
 											"createAtEnd": true
