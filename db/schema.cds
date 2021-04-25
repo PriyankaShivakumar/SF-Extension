@@ -4,10 +4,8 @@ using {cuid} from '@sap/cds/common';
 
 
 entity Project : cuid {
-  projectName : String(25)  ;         
-  //@mandatory not null;
-  description : String(50)    ;     
-   // @mandatory not null;
+  projectName : String(25);         
+  description : String(50);     
   criticality : String(1) default 'O'@mandatory;
   status      : Association to Status
                   on status.id = criticality;
@@ -15,13 +13,11 @@ entity Project : cuid {
                   on employees.project = $self;
 }
 
-// @assert.unique: {
-//   project_ID: [ employeeId, project ]
-// }
+
 entity EmployeeProjectMapping : cuid {
   employeeId : String(6) not null @assert.mandatory: false;
   project    : Association to Project;
-  identifierFieldControl : TechnicalFieldControlFlag not null default 7; // 7 = #Mandatory 
+  identifierFieldControl : TechnicalFieldControlFlag not null default 7;
 }
 
 type TechnicalFieldControlFlag : Integer @(

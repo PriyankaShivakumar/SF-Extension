@@ -151,6 +151,7 @@ module.exports = async srv => {
   }
   srv.after(["READ", "EDIT"], "Mappings", setTechnicalFlags);
 
+  //* Validating the Selected Employee *//
   srv.after("PATCH", "Mappings", async (data, req) => {
     console.log("2")
     console.log("pathc") 
@@ -161,7 +162,6 @@ module.exports = async srv => {
       personexist = await tx.run(SELECT.from(Mappings).where({ project_ID: projecid }).columns('employeeId'));
         if (empdata.employeeId != null) {
           const userid = empdata.employeeId;
-           // username = emp.userinfo.employeename;
           personexist.forEach(data => {
             if (data.employeeId === userid) {
              return req.error(
@@ -170,7 +170,6 @@ module.exports = async srv => {
             }
           })
           empdata.userinfo_employeeid = null
-         // emp.userinfo.employeename = null
           req.info({
             "code": 201,
             "message": `Employee ${userid} is  been assigned`,
@@ -187,7 +186,6 @@ module.exports = async srv => {
         "Property 'Project Name' must have a value.",
         "in/projectName"
       );
-    //  return req.reject({code: '400', message: "Please Select the Employee", numericSeverity:1, target: 'in/projectName'});
     }
     if (!req.data.description) {
       return req.reject(
@@ -272,7 +270,7 @@ module.exports = async srv => {
 
     } catch (e) {
       console.log(e)
-      each.userinfo_employeename = 'Unknown'
+      each.userinfo.employeename = 'Unknown'
     }
   }
   //* Skills Function *//
@@ -311,6 +309,7 @@ module.exports = async srv => {
     }
   }
 
+   // //*  Setting the flag for existing data while editing *//
   function setTechnicalFlags(Mappings) {
 
     function _setFlags(Mappings) {

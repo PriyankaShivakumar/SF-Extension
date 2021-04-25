@@ -91,7 +91,7 @@
 		},
 		"routing": {
 			"routes": [{
-				"pattern": "",
+				"pattern": ":?query:",
 				"name": "ProjectList",
 				"target": "ProjectList"
 			}, {

@@ -4,7 +4,7 @@ applications:
   env:
     DEPLOY_ATTRIBUTES: |-
       {
-        "app-content-digest" : "2C7AA19E515BC34647E1C04428F35070"
+        "app-content-digest" : "6A259BA7A4C92AE094C6FB491F5F7466"
       }
   stack: cflinuxfs3
   services:

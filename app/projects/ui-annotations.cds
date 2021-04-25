@@ -35,11 +35,11 @@ annotate AdminService.Mappings with {
                 LocalDataProperty : 'employeeId',
                 ValueListProperty : 'employeeid',
             },
-            // {
-            //     $Type             : 'Common.ValueListParameterOut',
-            //     LocalDataProperty : 'userinfo.employeename',
-            //     ValueListProperty : 'employeename',
-            // },
+            {
+                $Type             : 'Common.ValueListParameterDisplayOnly',
+             //   LocalDataProperty : 'userinfo.employeename',
+                ValueListProperty : 'employeename',
+            },
             ]
         },
     });

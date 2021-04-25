@@ -97,7 +97,7 @@
 		},
 		"routing": {
 			"routes": [{
-				"pattern": "",
+				"pattern": ":?query:",
 				"name": "NotificationsList",
 				"target": "NotificationsList"
 			}, {
